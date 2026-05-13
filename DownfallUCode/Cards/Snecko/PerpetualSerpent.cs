@@ -8,7 +8,7 @@ namespace DownfallU.DownfallUCode.Cards.Snecko;
 // Reference: STS1 PerpetualSerpent.
 public class PerpetualSerpent : SneckoCard
 {
-    protected override bool HasOverflow => true;
+    public override bool HasOverflow => true;
 
     public PerpetualSerpent() : base(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
     {

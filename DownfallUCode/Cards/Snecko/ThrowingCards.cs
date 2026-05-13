@@ -1,7 +1,6 @@
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models.Cards;
 
 namespace DownfallU.DownfallUCode.Cards.Snecko;
@@ -15,7 +14,7 @@ public class ThrowingCards : SneckoCard
     {
         WithKeyword(CardKeyword.Exhaust);
         WithEnergy(1);
-        WithTips(card => [HoverTipFactory.FromCard<Ftl>(card.IsUpgraded)]);
+        WithUpgradingCardTip<Ftl>();
     }
 
     protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play)

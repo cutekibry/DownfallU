@@ -8,7 +8,7 @@ namespace DownfallU.DownfallUCode.Cards.Snecko;
 
 public class Behold : SneckoCard
 {
-    protected override bool HasOverflow => true;
+    public override bool HasOverflow => true;
     public Behold() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {
         WithDamage(6, 3);

@@ -1,7 +1,6 @@
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Characters;
 using DownfallU.DownfallUCode.Enchantments;
@@ -16,7 +15,7 @@ public class Lacerate : SneckoCard
     {
         WithPower<VenomPower>(4, true);
         WithKeyword(CardKeyword.Exhaust);
-        WithTips(card => [HoverTipFactory.FromCard<CripplingPoison>(card.IsUpgraded)]);
+        WithUpgradingCardTip<CripplingPoison>();
         WithTip(typeof(Fake));
     }
 

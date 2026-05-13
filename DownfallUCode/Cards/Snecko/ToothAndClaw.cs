@@ -1,7 +1,6 @@
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using BaseLib.Utils;
@@ -18,7 +17,7 @@ public class ToothAndClaw : SneckoCard
     {
         WithDamage(4, 2);
         WithCalculatedVar("Colors", 0, CountUniquePoolsInHand);
-        WithTips(card => [HoverTipFactory.FromCard<Shiv>(card.IsUpgraded)]);
+        WithUpgradingCardTip<Shiv>();
     }
 
     private static decimal CountUniquePoolsInHand(CardModel card, MegaCrit.Sts2.Core.Entities.Creatures.Creature? _)

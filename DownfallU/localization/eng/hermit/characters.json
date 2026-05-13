@@ -1,0 +1,17 @@
+{
+  "DOWNFALLU-HERMIT.aromaPrinciple": "[sine][blue]...the scent of gunpowder...[/blue][/sine]",
+  "DOWNFALLU-HERMIT.banter.alive.endTurnPing": "...",
+  "DOWNFALLU-HERMIT.banter.dead.endTurnPing": "...",
+  "DOWNFALLU-HERMIT.cardsModifierDescription": "Hermit cards will now appear in rewards and shops.",
+  "DOWNFALLU-HERMIT.cardsModifierTitle": "Hermit",
+  "DOWNFALLU-HERMIT.description": "[gold]Gunslinger[/gold]: A mysterious wanderer who fights from the shadows.\nUses Dead On mechanics, Bruise debuffs, and curse synergy.",
+  "DOWNFALLU-HERMIT.eventDeathPrevention": "Not yet... I still have unfinished business...",
+  "DOWNFALLU-HERMIT.goldMonologue": "[sine]These coins... could buy some ammunition...[/sine]",
+  "DOWNFALLU-HERMIT.possessiveAdjective": "their",
+  "DOWNFALLU-HERMIT.pronounObject": "them",
+  "DOWNFALLU-HERMIT.pronounPossessive": "theirs",
+  "DOWNFALLU-HERMIT.pronounSubject": "they",
+  "DOWNFALLU-HERMIT.title": "The Hermit",
+  "DOWNFALLU-HERMIT.titleObject": "Hermit",
+  "DOWNFALLU-HERMIT.unlockText": "Play a run with [pink]{Prerequisite}[/pink] to unlock this character."
+}

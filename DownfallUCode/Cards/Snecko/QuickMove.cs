@@ -8,7 +8,7 @@ namespace DownfallU.DownfallUCode.Cards.Snecko;
 // Reference: STS1 QuickMove.
 public class QuickMove : SneckoCard
 {
-    protected override bool HasOverflow => true;
+    public override bool HasOverflow => true;
 
     public QuickMove() : base(1, CardType.Skill, CardRarity.Common, TargetType.Self)
     {

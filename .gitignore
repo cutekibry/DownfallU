@@ -12,4 +12,7 @@ packages/
 Directory.Build.props
 References/
 scripts/
-addons/
+addons/*
+!addons/spine/
+!addons/spine/**
+addons/spine/windows/~*

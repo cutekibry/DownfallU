@@ -13,7 +13,9 @@ namespace DownfallU.DownfallUCode.Cards.Snecko;
 [Pool(typeof(SneckoCardPool))]
 public abstract class SneckoCard : DownfallUCard
 {
-    protected virtual bool HasOverflow => false;
+    public override string CharacterId => "Snecko";
+
+    public virtual bool HasOverflow => false;
     private bool? _cachedIsOverflowed = null;
     protected override bool ShouldGlowGoldInternal => IsOverflowed;
     public bool IsOverflowed => _cachedIsOverflowed ?? (HasOverflow && PileType.Hand.GetPile(Owner).Cards.Count > 5);

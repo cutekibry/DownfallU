@@ -8,7 +8,7 @@ namespace DownfallU.DownfallUCode.Cards.Snecko;
 // Reference: STS1 DiceCrush; local Behold/TailWhip for Overflow and STS2 ShrugItOff for CardPileCmd.Draw.
 public class DiceCrush : SneckoCard
 {
-    protected override bool HasOverflow => true;
+    public override bool HasOverflow => true;
 
     public DiceCrush() : base(2, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {

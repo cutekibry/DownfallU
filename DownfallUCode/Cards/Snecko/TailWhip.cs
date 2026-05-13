@@ -7,7 +7,7 @@ namespace DownfallU.DownfallUCode.Cards.Snecko;
 
 public class TailWhip : SneckoCard
 {
-    protected override bool HasOverflow => true;
+    public override bool HasOverflow => true;
     public TailWhip() : base(2, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
     {
         WithDamage(10, 1);

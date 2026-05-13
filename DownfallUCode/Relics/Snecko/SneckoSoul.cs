@@ -19,7 +19,10 @@ public class SneckoSoul : SneckoRelic
 {
     private const int CharacterCount = 3;
 
-    public override RelicRarity Rarity => RelicRarity.Starter;
+    public SneckoSoul() : base(RelicRarity.Starter)
+    {
+        WithVar(new StringVar("Characters"));
+    }
 
     private List<ModelId> _characterIds = [];
 
@@ -60,8 +63,6 @@ public class SneckoSoul : SneckoRelic
             return _characterIds.Select(ModelDb.GetById<CharacterModel>);
         }
     }
-
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar("Characters")];
 
     private static CardModel GetRepresentativeCard(CharacterModel character)
     {

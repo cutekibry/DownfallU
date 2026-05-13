@@ -12,7 +12,7 @@ namespace DownfallU.DownfallUCode.Cards.Snecko;
 
 public class TyphoonFang : SneckoCard
 {
-    protected override bool HasOverflow => true;
+    public override bool HasOverflow => true;
 
     public TyphoonFang() : base(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
     {

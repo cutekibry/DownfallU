@@ -1,0 +1,5 @@
+{
+  "DOWNFALLU-SNECKO_SOUL.description": "在每场战斗开始时，将一张[gold]灵魂骰掷[/gold]加入你的[gold]手牌[/gold]。{Characters.StringValue:cond:\n本局游戏的[gold]赠礼[/gold]卡池：{}|}",
+  "DOWNFALLU-SNECKO_SOUL.flavor": "0……3……2……2……1",
+  "DOWNFALLU-SNECKO_SOUL.title": "异蛇之魂"
+}

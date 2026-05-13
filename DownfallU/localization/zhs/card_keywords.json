@@ -1,4 +1,13 @@
 {
+  "!": "This is automatically generated using scripts. Edit the files in subdirectories instead.",
+  "DOWNFALLU-BOUNTY.description": "普通敌人：15金币。精英敌人：40金币。首领：100金币。",
+  "DOWNFALLU-BOUNTY.title": "赏金",
+  "DOWNFALLU-DEADON.description": "精准牌位于手牌中央打出时会触发额外效果。",
+  "DOWNFALLU-DEADON.title": "精准",
+  "DOWNFALLU-DEFEND.description": "名字中有“防御”的牌。",
+  "DOWNFALLU-DEFEND.title": "防御",
+  "DOWNFALLU-STRIKE.description": "名字中有“打击”的牌。",
+  "DOWNFALLU-STRIKE.title": "打击",
   "DOWNFALLU-GIFT.description": "当你将这张牌加入卡组时，可获得一次指定类型的卡牌奖励。",
   "DOWNFALLU-GIFT.title": "赠礼",
   "DOWNFALLU-MUDDLE.description": "本回合耗能变为[blue]0[/blue]到[blue]3[/blue]之间的随机值。",

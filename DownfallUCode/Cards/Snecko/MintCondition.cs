@@ -8,7 +8,7 @@ namespace DownfallU.DownfallUCode.Cards.Snecko;
 // Reference: STS1 MintCondition; local DiceBlock/DiceCrush for Overflow checks.
 public class MintCondition : SneckoCard
 {
-    protected override bool HasOverflow => true;
+    public override bool HasOverflow => true;
 
     public MintCondition() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
     {

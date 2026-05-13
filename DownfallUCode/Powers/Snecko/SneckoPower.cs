@@ -5,5 +5,6 @@ namespace DownfallU.DownfallUCode.Powers.Snecko;
 
 public abstract class SneckoPower : DownfallUPower
 {
+    public override string CharacterId => "Snecko";
     public virtual Task AfterCardMuddled(PlayerChoiceContext choiceContext, CardModel card) => Task.CompletedTask;
 }

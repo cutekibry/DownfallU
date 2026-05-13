@@ -1,0 +1,10 @@
+{
+  "DOWNFALLU-GIFT.description": "When you obtain this card, get a card reward with the following card type.",
+  "DOWNFALLU-GIFT.title": "Gift",
+  "DOWNFALLU-MUDDLE.description": "Muddling a card changes its energy cost this turn to between [blue]0[/blue] and [blue]3[/blue] at random.",
+  "DOWNFALLU-MUDDLE.title": "Muddle",
+  "DOWNFALLU-OFFCLASS.description": "An Offclass card is any obtainable card from a class other than your own (including [gold]Colorless cards[/gold], [gold]Curses[/gold], and [gold]Statuses[/gold]).",
+  "DOWNFALLU-OFFCLASS.title": "Offclass",
+  "DOWNFALLU-OVERFLOW.description": "Overflow effects activate if you have more than [blue]5[/blue] cards in [Hand].",
+  "DOWNFALLU-OVERFLOW.title": "Overflow"
+}

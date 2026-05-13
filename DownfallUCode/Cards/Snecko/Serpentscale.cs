@@ -9,7 +9,7 @@ namespace DownfallU.DownfallUCode.Cards.Snecko;
 // Reference: STS1 Serpentscale; STS2 StoneArmor/PlatingPower for Plated Armor.
 public class Serpentscale : SneckoCard
 {
-    protected override bool HasOverflow => true;
+    public override bool HasOverflow => true;
 
     public Serpentscale() : base(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
     {

@@ -1,19 +1,18 @@
 using BaseLib.Utils;
+using DownfallU.DownfallUCode.Cards.Hermit;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 
 namespace DownfallU.DownfallUCode.Cards.Snecko;
 
-// Reference: STS1 Cower; local HoleUp plus CardPileCmd.AddGeneratedCardToCombat for generated-card creation.
 public class Cower : SneckoCard
 {
     public Cower() : base(2, CardType.Skill, CardRarity.Common, TargetType.Self)
     {
         WithBlock(14, 4);
         WithKeyword(CardKeyword.Exhaust);
-        WithTips(card => [HoverTipFactory.FromCard<HoleUp>(card.IsUpgraded)]);
+        WithUpgradingCardTip<HoleUp>();
     }
 
     protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play)
