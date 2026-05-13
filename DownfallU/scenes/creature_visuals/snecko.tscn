@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://4jqafivakhcw"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="SpineSkeletonDataResource" uid="uid://dfb7lc7tdej8y" path="res://DownfallU/animations/char/snecko/snecko_skel_data.tres" id="1_snecko"]
+[ext_resource type="SpineSkeletonDataResource" path="res://DownfallU/animations/char/snecko/snecko_skel_data.tres" id="1_snecko"]
 
 [node name="DownfallU" type="Node2D"]
 metadata/_edit_group_ = true

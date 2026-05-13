@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j2b7gec261ko"
-path="res://.godot/imported/Hermit.png-903fb7f5098db2d411e4445c3811bf49.ctex"
+uid="uid://t4a7d6sfsm01"
+path="res://.godot/imported/hermit.png-c617b82df2ff1e3e3089a1f2344141ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DownfallU/animations/char/hermit/Hermit.png"
-dest_files=["res://.godot/imported/Hermit.png-903fb7f5098db2d411e4445c3811bf49.ctex"]
+source_file="res://DownfallU/animations/char/hermit/hermit.png"
+dest_files=["res://.godot/imported/hermit.png-c617b82df2ff1e3e3089a1f2344141ea.ctex"]
 
 [params]
 
