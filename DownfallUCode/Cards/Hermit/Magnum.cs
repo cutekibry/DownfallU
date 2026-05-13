@@ -1,6 +1,6 @@
 
-using System.Security.AccessControl;
 using BaseLib.Utils;
+using DownfallU.DownfallUCode.Extensions;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -19,7 +19,7 @@ public class Magnum : HermitCard
 
     protected override async Task OnPlayInternal(PlayerChoiceContext ctx, CardPlay play)
     {
-        var handCount = PileType.Hand.GetPile(Owner).Cards.Count;
+        var handCount = Owner.GetHand().Count;
         var maxDiscard = Math.Min(DynamicVars.Cards.IntValue, handCount);
 
         var selected = (await CardSelectCmd.FromHandForDiscard(

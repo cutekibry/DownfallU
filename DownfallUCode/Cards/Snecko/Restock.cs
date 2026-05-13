@@ -20,8 +20,8 @@ public class Restock : SneckoCard
 
     protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play)
     {
-        await CardCmd.Discard(ctx, PileType.Hand.GetPile(Owner).Cards);
+        await CardCmd.Discard(ctx, Owner.GetHand());
         await CardPileCmd.Draw(ctx, DynamicVars.Cards.IntValue, Owner);
-        await SneckoActions.Muddle(ctx, PileType.Hand.GetPile(Owner).Cards.Where(c => c.CanBeMuddled()));
+        await SneckoActions.Muddle(ctx, Owner.GetHand().Where(c => c.CanBeMuddled()));
     }
 }

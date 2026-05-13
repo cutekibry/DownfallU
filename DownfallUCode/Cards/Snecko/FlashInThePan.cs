@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using DownfallU.DownfallUCode.Extensions;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -17,7 +18,7 @@ public class FlashInThePan : SneckoCard
     protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play)
     {
         await CommonActions.CardBlock(this, play);
-        var handCards = PileType.Hand.GetPile(Owner).Cards.ToList();
+        var handCards = Owner.GetHand().ToList();
         await CardCmd.Discard(ctx, handCards);
         if (handCards.Count > 0)
             await PowerCmd.Apply<DrawCardsNextTurnPower>(ctx, Owner.Creature, handCards.Count, Owner.Creature, this);

@@ -22,7 +22,7 @@ public class DefensiveFlair : SneckoCard
     
     private static decimal GetBonusBlock(CardModel card, Creature? _)
     {
-        return PileType.Hand.GetPile(card.Owner).Cards.Count(c => c.IsOffclass());
+        return card.Owner.GetHand().Count(c => c.IsOffclass());
     }
 
     protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play)

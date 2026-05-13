@@ -24,7 +24,7 @@ public class WideSting : SneckoCard
     {
         await CommonActions.CardAttack(this, play).Execute(ctx);
 
-        var offclassCards = PileType.Hand.GetPile(Owner).Cards
+        var offclassCards = Owner.GetHand()
             .Where(c => c.IsOffclass() && c.IsUpgradable)
             .ToList();
         CardCmd.Upgrade(offclassCards, CardPreviewStyle.None);

@@ -1,3 +1,4 @@
+using DownfallU.DownfallUCode.Extensions;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -22,16 +23,9 @@ public class DeadMansHand : HermitCard
 
     protected override async Task OnPlayInternal(PlayerChoiceContext ctx, CardPlay play)
     {
-        
+        await CardCmd.Discard(ctx, Owner.GetHand());
 
-        // Discard entire hand
-        var handCards = PileType.Hand.GetPile(Owner).Cards.ToList();
-        if (handCards.Count > 0)
-        {
-            await CardCmd.Discard(ctx, handCards);
-        }
-
-        var drawCards = PileType.Draw.GetPile(Owner).Cards.ToList();
+        var drawCards = Owner.GetDraw().ToList();
         if (drawCards.Count > 0)
         {
             for (int i = 0; i < DynamicVars.Cards.IntValue && drawCards.Count > 0; i++)

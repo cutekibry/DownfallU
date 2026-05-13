@@ -8,6 +8,7 @@ using DownfallU.DownfallUCode.Utils.Hermit;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Hooks;
+using DownfallU.DownfallUCode.Extensions;
 
 namespace DownfallU.DownfallUCode.Cards.Hermit;
 
@@ -49,7 +50,7 @@ public abstract class HermitCard: DownfallUCard
         if(((Type == CardType.Attack || Type == CardType.Skill) && Owner.Creature.HasPower<ConcentrationPower>()) || Owner.Creature.HasPower<CheatPower>())
             return true;
 
-        var handCards = PileType.Hand.GetPile(Owner).Cards.ToList();
+        var handCards = Owner.GetHand().ToList();
         int cardIndex = handCards.IndexOf(this);
         if (cardIndex == -1)
             return false;

@@ -4,7 +4,7 @@ using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
 using DownfallU.DownfallUCode.Cards.Snecko;
-using DownfallU.DownfallUCode.Relics;
+using DownfallU.DownfallUCode.Relics.Snecko;
 
 namespace DownfallU.DownfallUCode.Character.Snecko;
 

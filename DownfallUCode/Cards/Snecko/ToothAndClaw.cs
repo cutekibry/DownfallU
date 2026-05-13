@@ -22,7 +22,7 @@ public class ToothAndClaw : SneckoCard
 
     private static decimal CountUniquePoolsInHand(CardModel card, MegaCrit.Sts2.Core.Entities.Creatures.Creature? _)
     {
-        return PileType.Hand.GetPile(card.Owner).Cards
+        return card.Owner.GetHand()
             .Where(c => c != card)
             .Select(c => c.Pool.ColorId())
             .Distinct()

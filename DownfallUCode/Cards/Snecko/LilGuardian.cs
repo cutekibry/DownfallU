@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using DownfallU.DownfallUCode.Extensions;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -21,7 +22,7 @@ public class LilGuardian : SneckoCard
 
     public override async Task AfterCardPlayedLate(PlayerChoiceContext ctx, CardPlay play)
     {
-        if (play.Card != this && play.Card.Owner == Owner && play.Card.EnergyCost.GetResolved() >= DynamicVars.Energy.IntValue && PileType.Hand.GetPile(Owner).Cards.Contains(this))
+        if (play.Card != this && play.Card.Owner == Owner && play.Card.EnergyCost.GetResolved() >= DynamicVars.Energy.IntValue && Owner.GetHand().Contains(this))
             await CardCmd.AutoPlay(ctx, this, Owner.Creature);
     }
 }

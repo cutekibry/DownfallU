@@ -1,5 +1,6 @@
 
 using BaseLib.Utils;
+using DownfallU.DownfallUCode.Extensions;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -22,8 +23,7 @@ public class Spite : HermitCard
 
     protected override async Task OnPlayInternal(PlayerChoiceContext ctx, CardPlay play)
     {
-        var unplayables = PileType.Hand.GetPile(Owner).Cards
-            .Where(c => c.Keywords.Contains(CardKeyword.Unplayable));
+        var unplayables = Owner.GetHand().Where(c => c.Keywords.Contains(CardKeyword.Unplayable));
         foreach (var card in unplayables)
         {
             await CardCmd.Exhaust(ctx, card);

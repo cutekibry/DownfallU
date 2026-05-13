@@ -11,8 +11,8 @@ using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.Odds;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Runs;
-using DownfallU.DownfallUCode.Relics;
 using DownfallU.DownfallUCode.Character.Snecko;
+using DownfallU.DownfallUCode.Relics.Snecko;
 
 namespace DownfallU.DownfallUCode.Utils.Snecko;
 

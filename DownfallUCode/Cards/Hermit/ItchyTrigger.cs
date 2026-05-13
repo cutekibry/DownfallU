@@ -26,7 +26,7 @@ public class ItchyTrigger : HermitCard
     }
     protected override Task AfterPlayInternalIfDeadOn(PlayerChoiceContext ctx, CardPlay play)
     {
-        var hand = PileType.Hand.GetPile(Owner).Cards;
+        var hand = Owner.GetHand();
         var card = Owner.RunState.Rng.CombatCardSelection.NextItem(hand.Where(c => c.CanBeMuddled()));
         card?.EnergyCost.AddThisTurnOrUntilPlayed(-(int)DynamicVars["CostReduction"].BaseValue, reduceOnly: true);
         return Task.CompletedTask;

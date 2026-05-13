@@ -1,5 +1,6 @@
 using BaseLib.Utils;
 using DownfallU.DownfallUCode.Character.Hermit;
+using DownfallU.DownfallUCode.Extensions;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -18,7 +19,7 @@ public class Showdown : HermitCard
     protected override async Task OnPlayInternal(PlayerChoiceContext ctx, CardPlay play)
     {
         await CommonActions.CardAttack(this, play).Execute(ctx);
-        var strikes = PileType.Hand.GetPile(Owner).Cards
+        var strikes = Owner.GetHand()
             .Where(c => c.Tags.Contains(CardTag.Strike))
             .ToList();
 

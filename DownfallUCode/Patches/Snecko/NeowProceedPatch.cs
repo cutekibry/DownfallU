@@ -4,7 +4,7 @@ using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Models.Events;
-using DownfallU.DownfallUCode.Relics;
+using DownfallU.DownfallUCode.Relics.Snecko;
 
 namespace DownfallU.DownfallUCode.Patches.Snecko;
 

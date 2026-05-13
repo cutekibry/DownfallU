@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Models;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using DownfallU.DownfallUCode.Character.Snecko;
+using DownfallU.DownfallUCode.Extensions;
 
 namespace DownfallU.DownfallUCode.Cards.Snecko;
 
@@ -18,7 +19,7 @@ public abstract class SneckoCard : DownfallUCard
     public virtual bool HasOverflow => false;
     private bool? _cachedIsOverflowed = null;
     protected override bool ShouldGlowGoldInternal => IsOverflowed;
-    public bool IsOverflowed => _cachedIsOverflowed ?? (HasOverflow && PileType.Hand.GetPile(Owner).Cards.Count > 5);
+    public bool IsOverflowed => _cachedIsOverflowed ?? (HasOverflow && Owner.GetHand().Count > 5);
 
     public SneckoCard(int cost, CardType type, CardRarity rarity, TargetType target) : base(cost, type, rarity, target)
     {
@@ -30,7 +31,7 @@ public abstract class SneckoCard : DownfallUCard
 
     public void CacheIsOverflowed()
     {
-        _cachedIsOverflowed = HasOverflow && PileType.Hand.GetPile(Owner).Cards.Count > 5;
+        _cachedIsOverflowed = HasOverflow && Owner.GetHand().Count > 5;
     }
     public void ClearIsOverflowedCache()
     {

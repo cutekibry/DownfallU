@@ -1,5 +1,6 @@
 
 using BaseLib.Utils;
+using DownfallU.DownfallUCode.Extensions;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -24,7 +25,7 @@ public class FinalCanter : HermitCard
 
     private static decimal CountCursesInHand(CardModel card, Creature? _)
     {
-        return PileType.Hand.GetPile(card.Owner).Cards.Count(c => c.Type == CardType.Curse);
+        return card.Owner.GetHand().Count(c => c.Type == CardType.Curse);
     }
 
 }

@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using DownfallU.DownfallUCode.Extensions;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -21,7 +22,7 @@ public class LuckyBreak : SneckoCard
 
     private static decimal GetDrawCount(CardModel card, Creature? _)
     {
-        var hand = PileType.Hand.GetPile(card.Owner).Cards;
+        var hand = card.Owner.GetHand();
         return hand.Count(c => c != card && c.EnergyCost.GetResolved() >= card.DynamicVars.Energy.IntValue);
     }
 

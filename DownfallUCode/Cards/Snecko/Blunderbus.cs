@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using DownfallU.DownfallUCode.Extensions;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -17,7 +18,7 @@ public class Blunderbus : SneckoCard
 
     private static decimal CalculateBonusHits(CardModel card, Creature? _)
     {
-        return PileType.Hand.GetPile(card.Owner).Cards.Count(c => c.EnergyCost.GetResolved() >= card.DynamicVars.Energy.IntValue);
+        return card.Owner.GetHand().Count(c => c.EnergyCost.GetResolved() >= card.DynamicVars.Energy.IntValue);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play)

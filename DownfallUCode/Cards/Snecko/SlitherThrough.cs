@@ -22,7 +22,7 @@ public class SlitherThrough : SneckoCard
     protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play)
     {
         await CommonActions.CardAttack(this, play).Execute(ctx);
-        foreach (var card in PileType.Hand.GetPile(Owner).Cards)
+        foreach (var card in Owner.GetHand())
             if (card.IsOffclass() && card.CanBeMuddled())
                 card.EnergyCost.AddThisTurn(-DynamicVars.Energy.IntValue, reduceOnly: true);
     }
