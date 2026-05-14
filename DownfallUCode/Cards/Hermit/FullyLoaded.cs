@@ -19,12 +19,8 @@ public class FullyLoaded : HermitCard
 
     protected override async Task OnPlayInternal(PlayerChoiceContext ctx, CardPlay play)
     {
-        HermitSfx.PlaySpin();
-        HermitSfx.PlayReload();
-
         var strikesAndDefends = PileType.Draw.GetPile(Owner).Cards
             .Where(c => c.Tags.Contains(CardTag.Strike) || c.Tags.Contains(CardTag.Defend));
-
         foreach (var card in strikesAndDefends)
         {
             await CardPileCmd.Add(card, PileType.Hand);
