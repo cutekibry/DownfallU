@@ -36,7 +36,7 @@ public class GoldenBullet : HermitCard
     protected override async Task OnPlayInternal(PlayerChoiceContext ctx, CardPlay play)
     {
         bool shouldTriggerFatal = play.Target!.Powers.All(p => p.ShouldOwnerDeathTriggerFatal());
-        var attackCommand = await CommonActions.CardAttack(this, play, 0).Execute(ctx);
+        var attackCommand = await CommonActions.CardAttack(this, play).Execute(ctx);
 
         if (shouldTriggerFatal && play.Target!.IsDead)
         {
