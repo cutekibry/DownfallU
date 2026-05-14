@@ -196,6 +196,6 @@ public static class GiftSelector
 
     public static bool IsDebuff(CardModel card)
     {
-        return card.HoverTips.Any(t => t.IsDebuff) || card.DynamicVars.ContainsKey("StrengthPower") || card.DynamicVars.ContainsKey("DexterityLoss");
+        return card.HoverTips.Any(t => t.IsDebuff) || card.DynamicVars.ContainsKey("StrengthLoss") || card.DynamicVars.ContainsKey("DexterityLoss");
     }
 }
