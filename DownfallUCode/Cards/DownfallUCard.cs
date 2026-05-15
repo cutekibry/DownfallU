@@ -5,6 +5,7 @@ using DownfallU.DownfallUCode.Extensions;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DownfallU.DownfallUCode.Cards;
 
@@ -39,6 +40,12 @@ public abstract class DownfallUCard(int cost, CardType type, CardRarity rarity, 
     protected ConstructedCardModel WithRepeat(int baseVal, int upgrade = 0)
     {
         WithVar(new RepeatVar(baseVal).WithUpgrade(upgrade));
+        return this;
+    }
+    protected ConstructedCardModel WithStrengthLoss(int baseVal, int upgrade = 0)
+    {
+        WithVar("StrengthLoss", baseVal, upgrade);
+        WithTip(typeof(StrengthPower));
         return this;
     }
 

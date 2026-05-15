@@ -54,7 +54,7 @@
   "DOWNFALLU-FEINT.title": "佯攻",
   "DOWNFALLU-FINAL_CANTER.description": "[gold]手牌[/gold]中每有一张诅咒牌，造成{Damage:diff()}点伤害。{InCombat:\n（命中{Hits:diff()}次）|}",
   "DOWNFALLU-FINAL_CANTER.title": "最终手段",
-  "DOWNFALLU-FLASH_POWDER.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n所有敌人失去{StrengthPower:diff()}点[gold]力量[/gold]。",
+  "DOWNFALLU-FLASH_POWDER.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n所有敌人失去{StrengthLoss:diff()}点[gold]力量[/gold]。",
   "DOWNFALLU-FLASH_POWDER.title": "闪光粉末",
   "DOWNFALLU-FROM_BEYOND.description": "[gold]消耗堆[/gold]中每有一张牌，随机敌人失去{HpLoss:diff()}点生命。{InCombat:\n（造成{Hits:diff()}次）|}",
   "DOWNFALLU-FROM_BEYOND.title": "另一维度",

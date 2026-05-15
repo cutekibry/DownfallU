@@ -13,7 +13,7 @@ public class FlashPowder : HermitCard
     public FlashPowder() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
     {
         WithBlock(5);
-        WithPower<StrengthPower>(1, 1, true);
+        WithStrengthLoss(1, 1);
         WithKeyword(CardKeyword.Exhaust);
     }
 

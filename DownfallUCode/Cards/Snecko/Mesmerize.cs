@@ -11,7 +11,7 @@ public class Mesmerize : SneckoCard
 {
     public Mesmerize() : base(3, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies)
     {
-        WithPower<StrengthPower>(2, 1, true);
+        WithStrengthLoss(2, 1);
         WithMuddle(1);
         WithKeyword(CardKeyword.Exhaust);
     }

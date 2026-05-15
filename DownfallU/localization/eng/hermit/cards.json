@@ -54,7 +54,7 @@
   "DOWNFALLU-FEINT.title": "Feint",
   "DOWNFALLU-FINAL_CANTER.description": "For each [gold]Curse[/gold] in your hand, deal {Damage:diff()} damage.{InCombat:\n(Hits {Hits:diff()} times)|}",
   "DOWNFALLU-FINAL_CANTER.title": "Final Canter",
-  "DOWNFALLU-FLASH_POWDER.description": "Gain {Block:diff()} [gold]Block[/gold].\nALL enemies lose {StrengthPower:diff()} [gold]Strength[/gold].",
+  "DOWNFALLU-FLASH_POWDER.description": "Gain {Block:diff()} [gold]Block[/gold].\nALL enemies lose {StrengthLoss:diff()} [gold]Strength[/gold].",
   "DOWNFALLU-FLASH_POWDER.title": "Flash Powder",
   "DOWNFALLU-FROM_BEYOND.description": "For each card in your [gold]Exhaust pile[/gold], a random enemy loses {HpLoss:diff()} HP.{InCombat:\n(Causes {Hits:diff()} times)|}",
   "DOWNFALLU-FROM_BEYOND.title": "From Beyond",
