@@ -3,5 +3,8 @@
   "DOWNFALLU-ECHO.title": "回响",
   "DOWNFALLU-FAKE.description": "这张牌被视为指定角色的卡牌。",
   "DOWNFALLU-FAKE.extraCardText": "[gold]仿造[/gold]：[gold]{Character}[/gold]。",
-  "DOWNFALLU-FAKE.title": "仿造"
+  "DOWNFALLU-FAKE.title": "仿造",
+  "DOWNFALLU-LEAD.description": "打出后获得[blue]{Block:diff()}[/blue]点[gold]格挡[/gold]，且无视条件触发[gold]溢出[/gold]效果。",
+  "DOWNFALLU-LEAD.extraCardText": "获得{Block:diff()}点[gold]格挡[/gold]。",
+  "DOWNFALLU-LEAD.title": "灌铅"
 }

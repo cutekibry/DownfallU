@@ -8,6 +8,12 @@ namespace DownfallU.DownfallUCode.Hooks;
 
 public static class SneckoHooks
 {
+    public static async Task TriggerAfterCardOverflowed(PlayerChoiceContext ctx, CardModel card)
+    {
+        var relics = card.Owner.Relics.Where(r => r is SneckoRelic);
+        foreach (var relic in relics)
+            await ((SneckoRelic)relic).AfterCardOverflowed(ctx, card);
+    }
     public static async Task TriggerAfterCardMuddled(PlayerChoiceContext ctx, CardModel card)
     {
         if (card is SneckoCard sneckoCard)

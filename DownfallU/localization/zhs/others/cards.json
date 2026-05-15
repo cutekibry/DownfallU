@@ -1,0 +1,4 @@
+{
+  "DOWNFALLU-PAIN.description": "当在[gold]手牌[/gold]中时，每打出一张其他牌，失去{HpLoss:diff()}点生命。",
+  "DOWNFALLU-PAIN.title": "疼痛"
+}

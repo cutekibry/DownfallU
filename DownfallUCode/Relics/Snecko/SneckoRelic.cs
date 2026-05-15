@@ -12,4 +12,5 @@ public abstract class SneckoRelic(RelicRarity rarity) : DownfallURelic(rarity)
 {
     public override string CharacterID => "Snecko";
     public virtual Task AfterCardMuddled(PlayerChoiceContext choiceContext, CardModel card) => Task.CompletedTask;
+    public virtual Task AfterCardOverflowed(PlayerChoiceContext choiceContext, CardModel card) => Task.CompletedTask;
 }

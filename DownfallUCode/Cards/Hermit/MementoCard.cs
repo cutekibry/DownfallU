@@ -12,6 +12,7 @@ namespace DownfallU.DownfallUCode.Cards.Hermit;
 public class MementoCard : HermitCard
 {
     public override int MaxUpgradeLevel => 0;
+    public override bool CanBeGeneratedInCombat => false;
 
     public MementoCard() : base(0, CardType.Curse, CardRarity.Curse, TargetType.Self)
     {

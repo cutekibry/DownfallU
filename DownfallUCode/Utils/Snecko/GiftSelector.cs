@@ -180,19 +180,6 @@ public static class GiftSelector
         }
     }
 
-    private class UpgradedCardReward : CardReward
-    {
-        public UpgradedCardReward(IEnumerable<CardModel> cardsToOffer, CardCreationSource source, Player player, CardCreationOptions rerollOptions)
-            : base(cardsToOffer, source, player, rerollOptions)
-        {
-            AfterGenerated += UpgradeGeneratedCards;
-        }
-
-        private void UpgradeGeneratedCards()
-        {
-            CardCmd.Upgrade(Cards, CardPreviewStyle.None);
-        }
-    }
 
     public static bool IsDebuff(CardModel card)
     {

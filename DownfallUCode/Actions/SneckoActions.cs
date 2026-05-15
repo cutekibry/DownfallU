@@ -10,6 +10,7 @@ using DownfallU.DownfallUCode.CardSelectorPref;
 using DownfallU.DownfallUCode.Extensions;
 using DownfallU.DownfallUCode.Hooks;
 using DownfallU.DownfallUCode.Character.Snecko;
+using DownfallU.DownfallUCode.Relics.Snecko;
 
 namespace DownfallU.DownfallUCode.Actions;
 
@@ -28,9 +29,27 @@ public static class SneckoActions
             return;
         }
 
-        var cost = card.Owner.RunState.Rng.CombatEnergyCosts.NextInt(
-            cheaperOnly ? Math.Max(card.EnergyCost.GetResolved(), 1) : 4
-        );
+        var minCost = 0;
+        var maxCost = 3;
+
+        if (cheaperOnly)
+            maxCost = Math.Max(card.EnergyCost.GetResolved() - 1, 0);
+        
+        var cleanMud = card.Owner.GetRelic<CleanMud>();
+        if (cleanMud != null) {
+            cleanMud.Flash();
+            maxCost = Math.Min(maxCost, 2);
+        }
+
+        var crystallizedMud = card.Owner.GetRelic<CrystallizedMud>();
+        if (crystallizedMud != null) {
+            crystallizedMud.Flash();
+            minCost = 1;
+        }
+        
+        maxCost = Math.Max(maxCost, minCost);
+        
+        var cost = card.Owner.RunState.Rng.CombatEnergyCosts.NextInt(minCost, maxCost + 1);
         card.EnergyCost.SetThisTurn(cost);
         NCard.FindOnTable(card)?.PlayRandomizeCostAnim();
         await SneckoHooks.TriggerAfterCardMuddled(ctx, card);

@@ -10,6 +10,9 @@ namespace DownfallU.DownfallUCode.Relics;
 
 public abstract class ConstructedRelicModel(RelicRarity rarity) : CustomRelicModel()
 {
+    public Type? AncientType { get; private set; } = null;
+    public Func<AncientEventModel, bool>? AncientCondition { get; private set; } = null;
+
     private readonly RelicRarity _rarity = rarity;
     private readonly List<DynamicVar> _constructedDynamicVars = [];
 
@@ -77,7 +80,7 @@ public abstract class ConstructedRelicModel(RelicRarity rarity) : CustomRelicMod
     {
         EnergyVar item = new(baseVal);
         _constructedDynamicVars.Add(item);
-        WithTip(new TooltipSource(HoverTipFactory.ForEnergy));
+        WithTip(StaticHoverTip.Energy);
         return this;
     }
 
@@ -121,4 +124,16 @@ public abstract class ConstructedRelicModel(RelicRarity rarity) : CustomRelicMod
         return this;
     }
 
+    protected ConstructedRelicModel WithAncient<T>(Func<T, bool>? condition = null) where T : AncientEventModel
+    {
+        AncientType = typeof(T);
+        AncientCondition = eventModel => condition?.Invoke((T)eventModel) ?? true;
+        return this;
+    }
+    protected ConstructedRelicModel WithAncient<T, TCharacter>() where T : AncientEventModel where TCharacter : CharacterModel
+    {
+        AncientType = typeof(T);
+        AncientCondition = e => (e.Owner == null) || (e.Owner.Character is TCharacter);
+        return this;
+    }
 }

@@ -89,8 +89,8 @@ public abstract class SneckoCoreRelic : SneckoRelic
 
             var firstCard = Owner.RunState.CreateCard<MockCharacterChoiceCard>(Owner);
             var secondCard = Owner.RunState.CreateCard<MockCharacterChoiceSecondCard>(Owner);
-            firstCard.Mock(GetRepresentativeCard(firstCharacter));
-            secondCard.Mock(GetRepresentativeCard(secondCharacter));
+            firstCard.MockedPool = firstCharacter.CardPool;
+            secondCard.MockedPool = secondCharacter.CardPool;
 
             ((StringVar)firstCard.DynamicVars["Characters"]).StringValue = firstCharacter.Title.GetFormattedText();
             ((StringVar)secondCard.DynamicVars["Characters"]).StringValue = secondCharacter.Title.GetFormattedText();

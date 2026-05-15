@@ -1,11 +1,13 @@
+using BaseLib.Abstracts;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DownfallU.DownfallUCode.Cards.Snecko;
 
-public class TailWhip : SneckoCard
+public class TailWhip : SneckoCard, ITranscendenceCard
 {
     public override bool HasOverflow => true;
     public TailWhip() : base(2, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
@@ -23,5 +25,9 @@ public class TailWhip : SneckoCard
             await CommonActions.Apply<WeakPower>(ctx, play.Target!, this);
             await CommonActions.Apply<VulnerablePower>(ctx, play.Target!, this);
         }
+    }
+    public CardModel GetTranscendenceTransformedCard()
+    {
+        return ModelDb.Card<SneckoBeam>();
     }
 }

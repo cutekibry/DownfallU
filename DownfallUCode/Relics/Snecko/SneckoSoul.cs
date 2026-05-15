@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using DownfallU.DownfallUCode.Cards.Snecko;
+using MegaCrit.Sts2.Core.Models;
 
 namespace DownfallU.DownfallUCode.Relics.Snecko;
 
@@ -20,5 +21,9 @@ public class SneckoSoul : SneckoCoreRelic
     {
         if (player == Owner && combatState.RoundNumber == 1)
             await CardPileCmd.AddGeneratedCardToCombat(Owner.Creature.CombatState!.CreateCard<SoulRoll>(Owner), PileType.Hand, Owner);
+    }
+    public override RelicModel GetUpgradeReplacement()
+    {
+        return ModelDb.Relic<SuperSneckoSoul>();
     }
 }

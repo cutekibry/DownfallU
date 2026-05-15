@@ -10,18 +10,13 @@ namespace DownfallU.DownfallUCode.Cards.Snecko;
 [Pool(typeof(TokenCardPool))]
 public class MockCharacterChoiceCard : SneckoCard
 {
-    private CardPoolModel? _mockedPool;
+    public CardPoolModel? MockedPool;
 
-    public override CardPoolModel Pool => _mockedPool ?? base.Pool;
+    public override CardPoolModel Pool => MockedPool ?? base.Pool;
 
     public MockCharacterChoiceCard() : base(0, CardType.Status, CardRarity.Token, TargetType.None)
     {
         WithKeyword(SneckoKeyword.Gift);
         WithVar(new StringVar("Characters"));
-    }
-
-    public void Mock(CardModel representativeCard)
-    {
-        _mockedPool = representativeCard.Pool;
     }
 }

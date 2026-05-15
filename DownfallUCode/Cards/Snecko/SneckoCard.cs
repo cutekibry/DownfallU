@@ -1,6 +1,7 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
+using System.Reflection;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -8,6 +9,8 @@ using HarmonyLib;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using DownfallU.DownfallUCode.Character.Snecko;
 using DownfallU.DownfallUCode.Extensions;
+using DownfallU.DownfallUCode.Hooks;
+using DownfallU.DownfallUCode.Enchantments;
 
 namespace DownfallU.DownfallUCode.Cards.Snecko;
 
@@ -19,7 +22,8 @@ public abstract class SneckoCard : DownfallUCard
     public virtual bool HasOverflow => false;
     private bool? _cachedIsOverflowed = null;
     protected override bool ShouldGlowGoldInternal => IsOverflowed;
-    public bool IsOverflowed => _cachedIsOverflowed ?? (HasOverflow && Owner.GetHand().Count > 5);
+    public bool IsOverflowed => _cachedIsOverflowed ?? IsCurrentlyOverflowed;
+    private bool IsCurrentlyOverflowed => HasOverflow && (Enchantment is Lead || Owner.GetHand().Count > 5);
 
     public SneckoCard(int cost, CardType type, CardRarity rarity, TargetType target) : base(cost, type, rarity, target)
     {
@@ -31,7 +35,7 @@ public abstract class SneckoCard : DownfallUCard
 
     public void CacheIsOverflowed()
     {
-        _cachedIsOverflowed = HasOverflow && Owner.GetHand().Count > 5;
+        _cachedIsOverflowed = IsCurrentlyOverflowed;
     }
     public void ClearIsOverflowedCache()
     {
@@ -78,6 +82,34 @@ public abstract class SneckoCard : DownfallUCard
                 {
                     sneckoCard.ClearIsOverflowedCache();
                 }
+            }
+        }
+    }
+
+    [HarmonyPatch]
+    public static class OverflowPlayContextPatch
+    {
+        public static IEnumerable<MethodBase> TargetMethods()
+        {
+            return AccessTools.AllTypes()
+                .Where(type => !type.IsAbstract && type.IsAssignableTo(typeof(SneckoCard)))
+                .Select(type => AccessTools.DeclaredMethod(type, nameof(OnPlay), [typeof(PlayerChoiceContext), typeof(CardPlay)]))
+                .Where(method => method is { IsAbstract: false })
+                .Distinct()!;
+        }
+
+        [HarmonyPostfix]
+        public static void Postfix(SneckoCard __instance, PlayerChoiceContext ctx, ref Task __result)
+        {
+            __result = TriggerOverflowHookAfterPlay(__instance, ctx, __result);
+        }
+
+        private static async Task TriggerOverflowHookAfterPlay(SneckoCard card, PlayerChoiceContext ctx, Task original)
+        {
+            await original;
+            if (card.IsOverflowed)
+            {
+                await SneckoHooks.TriggerAfterCardOverflowed(ctx, card);
             }
         }
     }
