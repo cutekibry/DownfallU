@@ -1,8 +1,0 @@
-{
-  "!": "This is automatically generated using scripts. Edit the files in subdirectories instead.",
-  "DOWNFALLU-ECHO.description": "这张牌拥有[gold]虚无[/gold]和[gold]消耗[/gold]。",
-  "DOWNFALLU-ECHO.title": "回响",
-  "DOWNFALLU-FAKE.description": "这张牌被视为指定角色的卡牌。",
-  "DOWNFALLU-FAKE.extraCardText": "[gold]仿造[/gold]：[gold]{Character}[/gold]。",
-  "DOWNFALLU-FAKE.title": "仿造"
-}

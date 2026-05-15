@@ -16,3 +16,4 @@ addons/*
 !addons/spine/
 !addons/spine/**
 addons/spine/windows/~*
+/DownfallU/localization/*/*.json
