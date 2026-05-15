@@ -24,7 +24,7 @@ public class FlashPowder : HermitCard
 
         foreach (Creature enemy in CombatState!.HittableEnemies)
         {
-            await PowerCmd.Apply<StrengthPower>(ctx, enemy, -DynamicVars["StrengthPower"].BaseValue, Owner.Creature, this);
+            await PowerCmd.Apply<StrengthPower>(ctx, enemy, -DynamicVars["StrengthLoss"].BaseValue, Owner.Creature, this);
         }
     }
 

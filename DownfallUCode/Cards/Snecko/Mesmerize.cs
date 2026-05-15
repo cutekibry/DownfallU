@@ -19,7 +19,7 @@ public class Mesmerize : SneckoCard
     protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play)
     {
         foreach (var enemy in CombatState!.HittableEnemies)
-            await PowerCmd.Apply<StrengthPower>(ctx, enemy, -DynamicVars["StrengthPower"].BaseValue, Owner.Creature, this);
+            await PowerCmd.Apply<StrengthPower>(ctx, enemy, -DynamicVars["StrengthLoss"].BaseValue, Owner.Creature, this);
         await SneckoActions.MuddleHand(ctx, this);
     }
 }
