@@ -9,7 +9,7 @@ namespace DownfallU.DownfallUCode.Powers.Snecko;
 
 public class ConstrictedPower : SneckoPower
 {
-    public override PowerType Type => PowerType.Buff;
+    public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
     public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)

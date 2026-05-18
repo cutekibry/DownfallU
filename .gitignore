@@ -11,7 +11,6 @@ packages/
 *.user
 Directory.Build.props
 References/
-scripts/
 addons/*
 !addons/spine/
 !addons/spine/**

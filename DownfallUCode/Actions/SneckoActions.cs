@@ -22,15 +22,12 @@ public static class SneckoActions
         return CardFactory.GetDistinctForCombat(player, candidates, amount, player.RunState.Rng.CombatCardGeneration);
     }
 
-    public static async Task Muddle(PlayerChoiceContext ctx, CardModel card, bool cheaperOnly = false)
+    public static async Task Muddle(PlayerChoiceContext ctx, CardModel card, bool cheaperOnly = false, int minCost = 0, int maxCost = 3)
     {
         if (card.EnergyCost.Canonical < 0 || card.EnergyCost.CostsX)
         {
             return;
         }
-
-        var minCost = 0;
-        var maxCost = 3;
 
         if (cheaperOnly)
             maxCost = Math.Max(card.EnergyCost.GetResolved() - 1, 0);
@@ -64,9 +61,9 @@ public static class SneckoActions
         await MuddleHand(ctx, card, card.DynamicVars["Muddle"].IntValue, cheaperOnly);
     }
 
-    public static async Task Muddle(PlayerChoiceContext ctx, IEnumerable<CardModel> cards, bool cheaperOnly = false)
+    public static async Task Muddle(PlayerChoiceContext ctx, IEnumerable<CardModel> cards, bool cheaperOnly = false, int minCost = 0, int maxCost = 3)
     {
         foreach (var card in cards)
-            await Muddle(ctx, card, cheaperOnly);
+            await Muddle(ctx, card, cheaperOnly, minCost, maxCost);
     }
 }

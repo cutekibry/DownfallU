@@ -1,7 +1,7 @@
+using DownfallU.DownfallUCode.Extensions;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
@@ -18,10 +18,9 @@ public class AdaptPower : HermitPower
     {
         if (side != CombatSide.Player) return;
         if (Owner?.Player == null) return;
-        if (CombatManager.Instance.IsOverOrEnding) return;
 
-        var hand = PileType.Hand.GetPile(Owner.Player);
-        if (hand == null || !hand.Cards.Any()) return;
+        var hand = Owner.Player.GetHand().ToList();
+        if (hand.Count == 0) return;
 
         // Prompt player to select a card to exhaust (optional — min 0, max 1)
         var prefs = new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 0, 1);

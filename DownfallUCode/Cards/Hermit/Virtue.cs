@@ -17,7 +17,8 @@ public class Virtue : HermitCard
     protected override async Task OnPlayInternal(PlayerChoiceContext ctx, CardPlay play)
     {
         int reduceBy = DynamicVars["Reduce"].IntValue;
-        foreach (var power in Owner.Creature.Powers)
+        var powers = Owner.Creature.Powers.ToList();
+        foreach (var power in powers)
         {
             if (power.StackType == PowerStackType.Counter) {
                 if (power.Type == PowerType.Debuff && power.Amount > 0)

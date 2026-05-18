@@ -9,11 +9,6 @@ namespace DownfallU.DownfallUCode.Cards.Hermit;
 
 public class Spite : HermitCard
 {
-    private const int BlockAmount = 8;
-    private const int UpgradedBlockAmount = 10;
-    private const int DrawAmount = 3;
-    private const int UpgradedDrawAmount = 4;
-
     public Spite() : base(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
     {
         WithBlock(8, 2);
@@ -23,7 +18,7 @@ public class Spite : HermitCard
 
     protected override async Task OnPlayInternal(PlayerChoiceContext ctx, CardPlay play)
     {
-        var unplayables = Owner.GetHand().Where(c => c.Keywords.Contains(CardKeyword.Unplayable));
+        var unplayables = Owner.GetHand().Where(c => c.Keywords.Contains(CardKeyword.Unplayable)).ToList();
         foreach (var card in unplayables)
         {
             await CardCmd.Exhaust(ctx, card);

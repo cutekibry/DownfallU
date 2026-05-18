@@ -18,8 +18,9 @@ public class Roulette : HermitCard
     {
         await CommonActions.CardAttack(this, play).Execute(ctx);
         var hand = Owner.GetHand();
+        var count = hand.Count;
         await CardCmd.Discard(ctx, hand);
-        await CardPileCmd.Draw(ctx, hand.Count, Owner, false);
+        await CardPileCmd.Draw(ctx, count, Owner, false);
     }
 
 }

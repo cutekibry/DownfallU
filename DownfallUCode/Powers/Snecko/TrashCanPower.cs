@@ -16,7 +16,7 @@ public class TrashCanPower : SneckoPower
         if (side != Owner.Side)
             return;
 
-        var selected = await CardSelectCmd.FromHand(ctx, Owner.Player!, new CardSelectorPrefs(SelectionScreenPrompt, 0, Amount), c => true, this);
+        var selected = (await CardSelectCmd.FromHand(ctx, Owner.Player!, new CardSelectorPrefs(SelectionScreenPrompt, 0, Amount), c => true, this)).ToList();
         foreach (var card in selected)
             await CardCmd.Exhaust(ctx, card);
     }

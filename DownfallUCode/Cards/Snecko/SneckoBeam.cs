@@ -12,10 +12,10 @@ public class SneckoBeam : SneckoCard
     public override bool HasOverflow => true;
     public SneckoBeam() : base(2, CardType.Attack, CardRarity.Ancient, TargetType.AllEnemies)
     {
-        WithDamage(10);
-        WithPower<VulnerablePower>(1, 1, true);
-        WithPower<WeakPower>(1, 1, true);
-        WithStrengthLoss(1, 1);
+        WithDamage(10, 3);
+        WithPower<VulnerablePower>(2, 1, true);
+        WithPower<WeakPower>(2, 1, true);
+        WithStrengthLoss(2, 1);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play)

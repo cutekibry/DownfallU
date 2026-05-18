@@ -5,4 +5,7 @@ using DownfallU.DownfallUCode.Character.Snecko;
 namespace DownfallU.DownfallUCode.Potions.Snecko;
 
 [Pool(typeof(SneckoPotionPool))]
-public abstract class SneckoPotion : CustomPotionModel;
+public abstract class SneckoPotion : DownfallUPotion
+{
+    public override string CharacterId => "Snecko";
+}

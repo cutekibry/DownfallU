@@ -1,5 +1,6 @@
 
 using DownfallU.DownfallUCode.Character.Hermit;
+using DownfallU.DownfallUCode.Extensions;
 using DownfallU.DownfallUCode.Utils.Hermit;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -19,8 +20,8 @@ public class FullyLoaded : HermitCard
 
     protected override async Task OnPlayInternal(PlayerChoiceContext ctx, CardPlay play)
     {
-        var strikesAndDefends = PileType.Draw.GetPile(Owner).Cards
-            .Where(c => c.Tags.Contains(CardTag.Strike) || c.Tags.Contains(CardTag.Defend));
+        var strikesAndDefends = Owner.GetDraw()
+            .Where(c => c.Tags.Contains(CardTag.Strike) || c.Tags.Contains(CardTag.Defend)).ToList();
         foreach (var card in strikesAndDefends)
         {
             await CardPileCmd.Add(card, PileType.Hand);
